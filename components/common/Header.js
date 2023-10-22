@@ -1,6 +1,6 @@
 // Common/Header.js
 import React from "react";
-import {View, Text, StyleSheet, Image} from "react-native";
+import { View, Text, StyleSheet, Image } from "react-native";
 import profile from "../../assets/main/profile.png";
 import silver_coin from "../../assets/main/silver_coin.png";
 import gold_coin from "../../assets/main/gold_coin.png";
@@ -44,6 +44,7 @@ const styles = StyleSheet.create({
   root: {
     flexDirection: "row",
     justifyContent: "space-between",
+    alignItems: "center", // 가로 중앙 정렬
     backgroundColor: "#ffbe89",
     width: "100%",
     maxWidth: "100%",
@@ -65,10 +66,10 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-around",
     width: 130,
-    height: 40,
+    height: 30,
     backgroundColor: "#fc9643",
     borderRadius: 15,
-    marginTop: 5,
+
     alignItems: "center", // 수평 중앙 정렬
     shadowColor: "#000",
     shadowOffset: {
@@ -83,16 +84,16 @@ const styles = StyleSheet.create({
   coinRoot: {
     flexDirection: "row",
     justifyContent: "space-around",
-    width: 250,
+    width: 200,
   },
   coinWrap: {
     flexDirection: "row",
     paddingHorizontal: 15,
     paddingVertical: 2,
-    height: 40,
+    height: 30,
     backgroundColor: "#fc9643",
     borderRadius: 15,
-    marginTop: 5,
+
     justifyContent: "space-between",
     alignItems: "center", // 수평 중앙 정렬
     shadowColor: "#000",
@@ -106,22 +107,22 @@ const styles = StyleSheet.create({
     elevation: 8,
   },
   userNameText: {
-    fontSize: 20, // 수정: "1rem" 대신 숫자 값을 사용
+    fontSize: 15, // 수정: "1rem" 대신 숫자 값을 사용
     color: "white",
     fontFamily: "고령딸기체",
   },
   userNameImg: {
-    width: 30,
-    height: 30,
+    width: 25,
+    height: 25,
   },
   coinText: {
-    fontSize: 20, // 수정: "1rem" 대신 숫자 값을 사용
+    fontSize: 15, // 수정: "1rem" 대신 숫자 값을 사용
     color: "white",
     fontFamily: "고령딸기체",
   },
   coinImg: {
-    width: 30,
-    height: 30,
+    width: 20,
+    height: 20,
   },
   coinTextWrap: {
     borderRadius: 10,
@@ -133,7 +134,7 @@ const styles = StyleSheet.create({
     alignItems: "center", // 수평 중앙 정렬
   },
   coinTextPlusWrap: {
-    width: 30,
+    width: 20,
     borderRadius: 15,
     padding: 2,
     backgroundColor: "#ffffff",
