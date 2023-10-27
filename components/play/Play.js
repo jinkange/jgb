@@ -1,10 +1,11 @@
 // Page1.js
 import React from "react";
-import {View, Text, StyleSheet, Button, Platform, ImageBackground, Pressable} from "react-native";
+import {View, Text, StyleSheet, Button, Platform, ImageBackground, Pressable, Image} from "react-native";
 import WebView from "react-native-webview";
 import {STREMING_URL} from "../../const/const";
 import {SafeAreaView} from "react-native-safe-area-context";
 import background from "../../assets/main/background.png";
+import gold_coin from "../../assets/main/gold_coin.png";
 
 const Play = ({navigation}) => {
   return Platform.OS === "web" ? (
@@ -33,10 +34,12 @@ const Play = ({navigation}) => {
         <View style={styles.padWrrap}>
           <View style={styles.infoWraap}>
             <View style={styles.watcherWrrap}>
-              <Text style={styles.watcherText}>0 예약 / 1 관전</Text>
+              <Text style={styles.watcherText}>0 : 예약 / 1 : 관전</Text>
             </View>
             <View style={styles.coinWrrap}>
-              <Text style={styles.coinText}>1회 / 금코인 1</Text>
+              <Text style={styles.coinText}>1 회 / </Text>
+              <Image style={styles.coinImg} source={gold_coin} />
+              <Text style={styles.coinText}> : 1</Text>
             </View>
           </View>
           <View style={styles.btnWrrap}>
@@ -111,14 +114,15 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     width: "45%",
-    height: "100%",
+    height: "40",
     backgroundColor: "#00e2cff",
   },
   coinWrrap: {
+    flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
     width: "45%",
-    height: "100%",
+    height: "40",
     backgroundColor: "#322ffff",
   },
   watcherText: {fontSize: 13, lineHeight: 21, letterSpacing: 0.25, color: "white", fontFamily: "고령딸기체"},
@@ -128,6 +132,10 @@ const styles = StyleSheet.create({
     justifyContent: "space-around",
     width: "100%",
     height: 60,
+  },
+  coinImg: {
+    width: 20,
+    height: 20,
   },
   startBtnWrrap: {
     width: "45%",
