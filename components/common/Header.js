@@ -1,6 +1,6 @@
 // Common/Header.js
 import React from "react";
-import { View, Text, StyleSheet, Image } from "react-native";
+import {View, Text, StyleSheet, Image} from "react-native";
 import profile from "../../assets/main/profile.png";
 import silver_coin from "../../assets/main/silver_coin.png";
 import gold_coin from "../../assets/main/gold_coin.png";
@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.3,
     shadowRadius: 4.65,
 
-    elevation: 8,
+    elevation: 20,
   },
   userRoot: {
     flexDirection: "row",
