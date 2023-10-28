@@ -142,10 +142,10 @@ const styles = StyleSheet.create({
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
-      height: 1,
+      height: 8,
     },
-    shadowOpacity: 0.2,
-    shadowRadius: 1.41,
+    shadowOpacity: 0.46,
+    shadowRadius: 11.14,
   },
   titleTextWrap: {
     backgroundColor: "#7a3700",
@@ -183,6 +183,8 @@ const styles = StyleSheet.create({
     top: 30,
     alignItems: "center",
     justifyContent: "center",
+    borderTopEndRadius: 15,
+    borderTopStartRadius: 15,
   },
   titleTextUse: {
     textAlign: "center",

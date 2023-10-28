@@ -49,9 +49,9 @@ const styles = StyleSheet.create({
     width: "100%",
     maxWidth: "100%",
     minWidth: "100%",
-    height: 50,
-    maxHeight: 50,
-    minHeight: 50,
+    height: 45,
+    maxHeight: 45,
+    minHeight: 45,
     shadowColor: "#000",
     shadowOffset: {
       width: 0,

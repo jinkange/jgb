@@ -67,11 +67,11 @@ const Shop = () => {
 const TabNavi = () => {
   return (
     <Tab.Navigator
-      initialRouteName="Home"
+      initialRouteName="HOME"
       screenOptions={{
         tabBarStyle: {
           backgroundColor: "#ffbe89",
-          height: 50,
+          height: 45,
           borderTopRightRadius: 10,
           borderTopLeftRadius: 10,
         },
