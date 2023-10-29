@@ -335,7 +335,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     borderWidth: 3,
     borderColor: "#CA884B",
-    backgroundColor: "#bd5b00",
+    backgroundColor: "#D1825B",
     marginBottom: 10,
   },
   jjangWrrap: {
