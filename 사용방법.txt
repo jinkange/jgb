@@ -1,6 +1,4 @@
 eas build -p android --profile preview
-<<<<<<< HEAD
-=======
 npx expo-doctor
 
 //프로젝트 변경
@@ -9,4 +7,3 @@ eas init --id b4a1126c-fc2a-495a-8a14-0112cc959eba
 datadog
 
 px expo start, npx expo run:android
->>>>>>> e7751432cd8b4fa7d0899b00c16eba0506834b0c

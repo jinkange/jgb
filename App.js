@@ -1,13 +1,13 @@
-import {React, useCallback, useEffect} from "react";
-import {StyleSheet, Alert} from "react-native";
-import {NavigationContainer} from "@react-navigation/native";
-import {createNativeStackNavigator} from "@react-navigation/native-stack";
-import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
-import {getStatusBarHeight} from "react-native-status-bar-height";
-import {SafeAreaProvider} from "react-native-safe-area-context";
-import {StatusBar} from "expo-status-bar";
-import {useFonts} from "expo-font";
-import {BackHandler} from "react-native";
+import { React, useCallback, useEffect } from "react";
+import { StyleSheet, Alert } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { getStatusBarHeight } from "react-native-status-bar-height";
+import { SafeAreaProvider } from "react-native-safe-area-context";
+import { StatusBar } from "expo-status-bar";
+import { useFonts } from "expo-font";
+import { BackHandler } from "react-native";
 
 import FontAwesome5Icon from "react-native-vector-icons/AntDesign";
 
@@ -50,8 +50,16 @@ const RootNavigator = () => {
 const Shop = () => {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="ProductList" component={ProductList} options={{headerShown: false}} />
-      <Stack.Screen name="ProductDetail" component={ProductDetail} options={{headerShown: false}} />
+      <Stack.Screen
+        name="ProductList"
+        component={ProductList}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="ProductDetail"
+        component={ProductDetail}
+        options={{ headerShown: false }}
+      />
     </Stack.Navigator>
   );
 };
@@ -62,7 +70,7 @@ const TabNavi = () => {
       initialRouteName="HOME"
       screenOptions={{
         tabBarStyle: {
-          backgroundColor: "#ffbe89",
+          backgroundColor: "#d1825bb2",
           height: 45,
           borderTopRightRadius: 10,
           borderTopLeftRadius: 10,
@@ -70,13 +78,16 @@ const TabNavi = () => {
         tabBarActiveTintColor: "black",
         tabBarInactiveTintColor: "#0000006e",
         tabBarPressColor: "#0000006e ",
-      }}>
+      }}
+    >
       <Tab.Screen
         name="HOME"
         component={Home}
         options={{
           headerShown: false,
-          tabBarIcon: () => <FontAwesome5Icon name="home" size={20} color={"#0000006e"} />,
+          tabBarIcon: () => (
+            <FontAwesome5Icon name="home" size={20} color={"#0000006e"} />
+          ),
         }}
       />
       <Tab.Screen
@@ -84,7 +95,9 @@ const TabNavi = () => {
         component={Shop}
         options={{
           headerShown: false,
-          tabBarIcon: () => <FontAwesome5Icon name="isv" size={20} color={"#0000006e"} />,
+          tabBarIcon: () => (
+            <FontAwesome5Icon name="isv" size={20} color={"#0000006e"} />
+          ),
         }}
       />
       <Tab.Screen
@@ -92,7 +105,9 @@ const TabNavi = () => {
         component={Mypage}
         options={{
           headerShown: false,
-          tabBarIcon: () => <FontAwesome5Icon name="user" size={20} color={"#0000006e"} />,
+          tabBarIcon: () => (
+            <FontAwesome5Icon name="user" size={20} color={"#0000006e"} />
+          ),
         }}
       />
       <Tab.Screen
@@ -100,7 +115,9 @@ const TabNavi = () => {
         component={Setting}
         options={{
           headerShown: false,
-          tabBarIcon: () => <FontAwesome5Icon name="tool" size={20} color={"#0000006e"} />,
+          tabBarIcon: () => (
+            <FontAwesome5Icon name="tool" size={20} color={"#0000006e"} />
+          ),
         }}
       />
     </Tab.Navigator>
@@ -111,14 +128,17 @@ export default function App() {
   useEffect(() => {
     const backAction = () => {
       Alert.alert("앱 종료", "앱을 종료하시겠습니까?", [
-        {text: "취소", onPress: () => null},
-        {text: "확인", onPress: () => BackHandler.exitApp()},
+        { text: "취소", onPress: () => null },
+        { text: "확인", onPress: () => BackHandler.exitApp() },
       ]);
       return true;
     };
 
     // 리스너 등록
-    const backHandler = BackHandler.addEventListener("hardwareBackPress", backAction);
+    const backHandler = BackHandler.addEventListener(
+      "hardwareBackPress",
+      backAction
+    );
 
     return () => {
       // 이벤트 리스너 해제

@@ -1,6 +1,6 @@
 // Common/Header.js
 import React from "react";
-import {View, Text, StyleSheet, Image} from "react-native";
+import { View, Text, StyleSheet, Image } from "react-native";
 import profile from "../../assets/main/profile.png";
 import silver_coin from "../../assets/main/silver_coin.png";
 import gold_coin from "../../assets/main/gold_coin.png";
@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center", // 가로 중앙 정렬
-    backgroundColor: "#ffbe89",
+    backgroundColor: "#CA884B",
     width: "100%",
     maxWidth: "100%",
     minWidth: "100%",
@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-around",
     width: 130,
     height: 30,
-    backgroundColor: "#fc9643",
+    backgroundColor: "#D1825B",
     borderRadius: 15,
 
     alignItems: "center", // 수평 중앙 정렬
@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15,
     paddingVertical: 2,
     height: 30,
-    backgroundColor: "#fc9643",
+    backgroundColor: "#D1825B",
     borderRadius: 15,
 
     justifyContent: "space-between",
@@ -129,7 +129,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     marginLeft: 10,
     paddingVertical: 2,
-    backgroundColor: "#ff7300",
+    backgroundColor: "#CCA142",
     textAlign: "center",
     alignItems: "center", // 수평 중앙 정렬
   },

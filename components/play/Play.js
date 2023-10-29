@@ -1,4 +1,4 @@
-import React from "react";
+import { React, useState } from "react";
 import {
   View,
   Text,
@@ -14,8 +14,135 @@ import { STREMING_URL } from "../../const/const";
 import { SafeAreaView } from "react-native-safe-area-context";
 import background from "../../assets/main/background.png";
 import gold_coin from "../../assets/main/gold_coin.png";
+import jjangOff from "../../assets/play/jang_off.png";
+import jjangOn from "../../assets/play/jang_on.png";
+import ggamOff from "../../assets/play/찌off.png";
+import ggamOn from "../../assets/play/찌on.png";
+import bboOff from "../../assets/play/빠off.png";
+import bboOn from "../../assets/play/빠on.png";
 
 const Play = ({ navigation }) => {
+  let [startBtnFlag, setStartBtnFlag] = useState(true);
+
+  let [jjangImgBtnFlag, setJjangImgBtnFlag] = useState(true);
+  let [ggamImgBtnFlag, setGgamImgBtnFlag] = useState(true);
+  let [bboImgBtnFlag, setBboImgBtnFlag] = useState(true);
+
+  let [imgBtnFlag, setImgBtnFlag] = useState(true);
+
+  let changeJjangImage = () =>
+    setJjangImgBtnFlag((previousState) => !previousState);
+  let changeGgamImage = () =>
+    setGgamImgBtnFlag((previousState) => !previousState);
+  let changeBboImage = () =>
+    setBboImgBtnFlag((previousState) => !previousState);
+
+  let jjangPath = jjangImgBtnFlag ? jjangOn : jjangOff;
+  let ggamPath = ggamImgBtnFlag ? ggamOn : ggamOff;
+  let bboPath = bboImgBtnFlag ? bboOn : bboOff;
+
+  let stateWrrap = null;
+  let loadingWrrap = null;
+  if (imgBtnFlag) {
+    loadingWrrap = null;
+  } else {
+    loadingWrrap = (
+      <View style={styles.loadingWrrap}>
+        <Text style={styles.loadingText}> 결과 대기중</Text>
+      </View>
+    );
+  }
+  if (startBtnFlag) {
+    stateWrrap = (
+      <View style={styles.btnWrrap}>
+        <View style={styles.startBtnWrrap}>
+          <Pressable
+            style={styles.startBtn}
+            onPress={() => setStartBtnFlag(!startBtnFlag)}
+          >
+            <Text style={styles.btnText}>시작하기</Text>
+          </Pressable>
+        </View>
+        <View style={styles.exitBtnWrrap}>
+          <Pressable
+            style={styles.exitBtn}
+            onPress={() => navigation.navigate("HOME")}
+          >
+            <Text style={styles.btnText}>나가기</Text>
+          </Pressable>
+        </View>
+      </View>
+    );
+  } else {
+    stateWrrap = (
+      <>
+        <View style={styles.jgbBtnWrrap}>
+          <View style={styles.jjangWrrap}>
+            <Pressable
+              onPress={() => {
+                if (imgBtnFlag) {
+                  setImgBtnFlag(false);
+                  changeJjangImage();
+                }
+              }}
+            >
+              <Image
+                resizeMode="contain"
+                style={jjangImgBtnFlag ? styles.jgbImg : styles.jImgOn}
+                source={jjangPath}
+              />
+            </Pressable>
+          </View>
+          <View style={styles.jjangWrrap}>
+            <Pressable
+              onPress={() => {
+                if (imgBtnFlag) {
+                  setImgBtnFlag(false);
+                  changeGgamImage();
+                }
+              }}
+            >
+              <Image
+                resizeMode="contain"
+                style={ggamImgBtnFlag ? styles.jgbImg : styles.gImgOn}
+                source={ggamPath}
+              />
+            </Pressable>
+          </View>
+          <View style={styles.jjangWrrap}>
+            <Pressable
+              onPress={() => {
+                if (imgBtnFlag) {
+                  setImgBtnFlag(false);
+                  changeBboImage();
+                }
+              }}
+            >
+              <Image
+                resizeMode="contain"
+                style={bboImgBtnFlag ? styles.jgbImg : styles.bImgOn}
+                source={bboPath}
+              />
+            </Pressable>
+          </View>
+        </View>
+        <View style={styles.endBtnWrrap}>
+          <Pressable
+            style={styles.endBtn}
+            onPress={() => {
+              if (imgBtnFlag) {
+                setStartBtnFlag(!startBtnFlag);
+              } else {
+              }
+            }}
+          >
+            <Text style={styles.btnText}>그만하기</Text>
+          </Pressable>
+        </View>
+      </>
+    );
+  }
+
   return (
     <View style={styles.container}>
       <ImageBackground
@@ -24,6 +151,7 @@ const Play = ({ navigation }) => {
         resizeMode="cover"
       >
         <View style={styles.webViewWrrap}>
+          {loadingWrrap}
           {Platform.OS === "web" ? (
             <iframe
               src={"http://27.124.206.159:200" + STREMING_URL}
@@ -48,24 +176,7 @@ const Play = ({ navigation }) => {
               <Text style={styles.coinText}> : 1</Text>
             </View>
           </View>
-          <View style={styles.btnWrrap}>
-            <View style={styles.startBtnWrrap}>
-              <Pressable
-                style={styles.startBtn}
-                onPress={() => navigation.navigate("HOME")}
-              >
-                <Text style={styles.btnText}>시작하기</Text>
-              </Pressable>
-            </View>
-            <View style={styles.exitBtnWrrap}>
-              <Pressable
-                style={styles.exitBtn}
-                onPress={() => navigation.navigate("HOME")}
-              >
-                <Text style={styles.btnText}>나가기</Text>
-              </Pressable>
-            </View>
-          </View>
+          {stateWrrap}
         </View>
       </ImageBackground>
     </View>
@@ -89,6 +200,23 @@ const styles = StyleSheet.create({
     //height: "100%",
     //width: "100%",
   },
+  loadingWrrap: {
+    position: "absolute",
+    backgroundColor: "#0000007d",
+    height: "100%",
+    zIndex: 10,
+    width: "100%",
+    alignItems: "center",
+    justifyContent: "center",
+    borderTopEndRadius: 15,
+    borderTopStartRadius: 15,
+  },
+  loadingText: {
+    textAlign: "center",
+    fontSize: 30, // 수정: "1rem" 대신 숫자 값을 사용
+    color: "white",
+    fontFamily: "고령딸기체",
+  },
   webViewWrrap: {
     flex: 1,
     flexDirection: "row",
@@ -96,7 +224,7 @@ const styles = StyleSheet.create({
     marginTop: "2%",
     width: "95%",
     height: "60%",
-    borderColor: "#ff9900",
+    borderColor: "#CA884B",
     borderRadius: 15,
     borderWidth: 5,
   },
@@ -112,8 +240,8 @@ const styles = StyleSheet.create({
     justifyContent: "space-around",
     width: "95%",
     height: 60,
-    borderColor: "#ff9900",
-    backgroundColor: "#fd8a2b",
+    borderColor: "#CA884B",
+    backgroundColor: "#bd5b00",
     borderRadius: 10,
     //borderRadius: 5,
     borderWidth: 5,
@@ -126,22 +254,22 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     width: "45%",
-    height: 50,
+    height: 40,
     borderRadius: 10,
     borderWidth: 3,
-    borderColor: "#ff9900",
-    backgroundColor: "#ff9239",
+    borderColor: "#CA884B",
+    backgroundColor: "#D1825B",
   },
   coinWrrap: {
     alignItems: "center",
     justifyContent: "center",
     width: "45%",
-    height: 50,
+    height: 40,
     borderRadius: 10,
     borderWidth: 3,
     flexDirection: "row",
-    borderColor: "#ff9900",
-    backgroundColor: "#ff9239",
+    borderColor: "#CA884B",
+    backgroundColor: "#D1825B",
   },
   watcherText: {
     fontSize: 13,
@@ -177,7 +305,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 32,
     borderRadius: 4,
     elevation: 3,
-    backgroundColor: "#25a000",
+    backgroundColor: "#82BBB5",
   },
   exitBtnWrrap: {
     width: "45%",
@@ -189,7 +317,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 32,
     borderRadius: 4,
     elevation: 3,
-    backgroundColor: "#fc9643",
+    backgroundColor: "#573b00",
   },
   btnText: {
     fontSize: 15,
@@ -197,6 +325,51 @@ const styles = StyleSheet.create({
     letterSpacing: 0.25,
     color: "white",
     fontFamily: "고령딸기체",
+  },
+  jgbBtnWrrap: {
+    flexDirection: "row",
+    justifyContent: "space-around",
+    alignItems: "flex-start",
+    width: "95%",
+    height: 120,
+    borderRadius: 10,
+    borderWidth: 3,
+    borderColor: "#CA884B",
+    backgroundColor: "#bd5b00",
+    marginBottom: 10,
+  },
+  jjangWrrap: {
+    width: "30%",
+    height: 120,
+    flexDirection: "column",
+  },
+  jgbImg: {
+    width: "100%",
+    height: "100%",
+  },
+  jImgOn: {
+    width: "100%",
+    height: "105%",
+  },
+  gImgOn: {
+    width: "100%",
+    height: "106%",
+  },
+  bImgOn: {
+    width: "100%",
+    height: "104%",
+  },
+  endBtnWrrap: {
+    width: "95%",
+  },
+  endBtn: {
+    alignItems: "center",
+    justifyContent: "center",
+    paddingVertical: 12,
+    paddingHorizontal: 32,
+    borderRadius: 4,
+    elevation: 3,
+    backgroundColor: "#573b00",
   },
 });
 

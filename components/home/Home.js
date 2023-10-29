@@ -209,8 +209,8 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
     paddingHorizontal: 32,
     borderRadius: 4,
-    elevation: 3,
-    backgroundColor: "#25a000",
+    elevation: 10,
+    backgroundColor: "#82BBB5",
   },
   UseBtn: {
     alignItems: "center",
@@ -218,7 +218,7 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
     paddingHorizontal: 32,
     borderRadius: 4,
-    elevation: 3,
+    elevation: 10,
     backgroundColor: "#573b00",
   },
   WatcherBtn: {
@@ -227,8 +227,8 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
     paddingHorizontal: 32,
     borderRadius: 4,
-    elevation: 3,
-    backgroundColor: "#19a5f7",
+    elevation: 10,
+    backgroundColor: "#0cb4a3",
   },
   BtnText: {
     fontSize: 15,
