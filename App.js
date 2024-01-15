@@ -1,13 +1,12 @@
-import { React, useCallback, useEffect } from "react";
-import { StyleSheet, Alert } from "react-native";
-import { NavigationContainer } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { getStatusBarHeight } from "react-native-status-bar-height";
-import { SafeAreaProvider } from "react-native-safe-area-context";
-import { StatusBar } from "expo-status-bar";
-import { useFonts } from "expo-font";
-import { BackHandler } from "react-native";
+import {React, useCallback, useEffect} from "react";
+import {Alert, BackHandler, StyleSheet} from "react-native";
+import {NavigationContainer} from "@react-navigation/native";
+import {createNativeStackNavigator} from "@react-navigation/native-stack";
+import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
+import {getStatusBarHeight} from "react-native-status-bar-height";
+import {SafeAreaProvider} from "react-native-safe-area-context";
+import {StatusBar} from "expo-status-bar";
+import {useFonts} from "expo-font";
 
 import FontAwesome5Icon from "react-native-vector-icons/AntDesign";
 
@@ -17,7 +16,6 @@ import Play from "./components/play/Play";
 import Setting from "./components/setting/Setting";
 import Mypage from "./components/mypage/Mypage";
 //import Shop from "./components/shop/Shop";
-
 import ProductDetail from "./components/shop/ProductDetail";
 import ProductList from "./components/shop/ProductList";
 
@@ -148,6 +146,9 @@ export default function App() {
 
   const [fontsLoaded, fontError] = useFonts({
     고령딸기체: require("./assets/fonts/고령딸기체+TTF.ttf"),
+      dongleBold: require("./assets/fonts/Dongle-Bold.ttf"),
+      dongleRegular: require("./assets/fonts/Dongle-Regular.ttf"),
+      dongleLight: require("./assets/fonts/Dongle-Light.ttf"),
   });
 
   const onLayoutRootView = useCallback(async () => {
